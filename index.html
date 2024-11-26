@@ -13,45 +13,37 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-color-primary text-color-white tracking-wider">
+  <body class="bg-black text-color-white tracking-wider">
     <header>
       <nav class="container flex justify-between items-center">
-        <div class="py-5 text-color-secondary font-bold text-3xl">
-          <a href="#home"><span class="text-color-white">Cran</span>berri</a>
+        <div class="w-40">
+          <img src="logo.png" alt="Logo" />
         </div>
         <div>
           <ul class="hidden lg:flex items-center space-x-6">
             <li>
-              <a
-                href="#home"
-                class="hover:text-color-secondary ease-in duration-200"
+              <a href="#home" class="hover:text-red-600 ease-in duration-200"
                 >Home</a
               >
             </li>
             <li>
-              <a
-                href="#project"
-                class="hover:text-color-secondary ease-in duration-200"
+              <a href="#project" class="hover:text-red-600 ease-in duration-200"
                 >Projects</a
               >
             </li>
             <li>
-              <a
-                href="#review"
-                class="hover:text-color-secondary ease-in duration-200"
+              <a href="#review" class="hover:text-red-600 ease-in duration-200"
                 >Reviews</a
               >
             </li>
             <li>
-              <a
-                href="#contact"
-                class="hover:text-color-secondary ease-in duration-200"
+              <a href="#contact" class="hover:text-red-600 ease-in duration-200"
                 >Contact</a
               >
             </li>
             <li>
               <button
-                class="bg-color-secondary px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200"
+                class="bg-red-600 px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200"
               >
                 Get started
               </button>
@@ -59,7 +51,7 @@
           </ul>
         </div>
 
-        <!--MOBILE SCREEN-->
+        <!-- MOBILE SCREEN -->
         <div id="hamburger" class="lg:hidden cursor-pointer z-50">
           <i class="fa-solid fa-bars"></i>
         </div>
@@ -110,42 +102,150 @@
     </header>
 
     <main>
+      <!-- LANDING PAGE -->
       <section id="home" class="relative">
+        <!-- Background shapes -->
         <div
-          class="w-80 h-80 bg-color-blob absolute top-0 -left-5 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full"
+          class="w-80 h-80 bg-red-600 absolute top-0 -left-5 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full"
         ></div>
         <div
-          class="w-80 h-80 bg-color-secondary absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full"
+          class="w-80 h-80 bg-red-600 absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full"
         ></div>
 
+        <!-- Content container -->
         <div class="container py-20">
           <div class="flex flex-col items-center z-20 md:flex-row">
+            <!-- Text section -->
             <div class="text-center mb-12 md:text-left md:w-1/2 md:pr-10">
               <h1 class="text-3xl md:text-4xl font-bold leading-snug">
-                Fresh, sweet & juicy !
-                <br /><br />
+                Made Sweet and Simple
               </h1>
               <p class="leading-relaxed mb-10">
-                nc2unu nu nunucnucuc unucnucnucuhxnunu nunu2e 2 n2n2uin2ic fc i
-                ni c2c i2cij2cnicncijcnic 2ic cncicnij2ijxnije j2cjc2 cc2
-                cci2cnijneicni nc2unu nu nunucnucuc unucnucnucuhxnunu nunu2e 2
-                n2n2uin2ic fc i ni c2c i2cij2cnicncijcnic 2ic cncicnij2ijxnije
-                j2cjc2 cc2 cci2cnijneicni nc2unu nu nunucnucuc unucnucnucuhxnunu
-                nunu2e 2 n2n2uin2ic fc i ni c2c i2cij2cnicncijcnic 2ic
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
+                amet nulla auctor, vestibulum magna sed, convallis ex. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus.
               </p>
               <button
-                class="bg-color-secondary px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200"
+                class="bg-red-600 px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200"
               >
                 Explore
               </button>
             </div>
 
+            <!-- Image section -->
             <div class="md:w-1/2">
               <img src="hero4.png" alt="Hero Image" />
             </div>
           </div>
         </div>
       </section>
+
+      <!-- REVIEW SECTION -->
+      <section id="testimonial">
+        <div class="container py-20">
+          <div class="text-center m-auto mb-20 md:w-1/2">
+            <h4 class="font-bold text-color-secondary mb-4 text-3xl">
+              User Review
+            </h4>
+            <h2 class="title text-5xl">
+              What Clients Say About Our App After Using It
+            </h2>
+
+            <br /><br /><br /><br />
+
+            <!-- REVIEW container -->
+            <div class="mt-8 flex items-center justify-center flex-wrap">
+              <img
+                src="/img/user1.png"
+                alt="User  1 profile picture"
+                class="h-20 w-20 rounded-full p-1 m-3 cursor-pointer user-pic"
+                onclick="showReview()"
+              />
+              <img
+                src="/img/user2.png"
+                alt="User  2 profile picture"
+                class="h-20 w-20 rounded-full p-1 m-3 cursor-pointer user-pic"
+                onclick="showReview()"
+              />
+              <img
+                src="/img/user3.png"
+                alt="User  3 profile picture"
+                class="h-20 w-20 rounded-full p-1 m-3 cursor-pointer user-pic"
+                onclick="showReview()"
+              />
+              <img
+                src="/img/user4.png"
+                alt="User  4 profile picture"
+                class="h-20 w-20 rounded-full p-1 m-3 cursor-pointer user-pic"
+                onclick="showReview()"
+              />
+              <img
+                src="/img/user5.png"
+                alt="User  5 profile picture"
+                class="h-20 w-20 rounded-full p-1 m-3 cursor-pointer user-pic"
+                onclick="showReview()"
+              />
+            </div>
+
+            <div
+              class="grid place-items-center text-center m-auto md:w-4/5 min-h-[40vh]"
+            >
+              <div class="user-text">
+                <p class="md:text-2xl mb-6">
+                  "This should be used to tell a story and include any
+                  testimontials you might have about your product or service for
+                  your clients
+                </p>
+                <h4 class="font-bold text-color-secondary mb-1">
+                  Markin Nesus
+                </h4>
+                <p>Ios Developer</p>
+              </div>
+
+              <div class="user-text">
+                <p class="md:text-2xl mb-6">
+                  "This should be used to tell a story and include any
+                  testimontials you might have about your product or service for
+                  your clients
+                </p>
+                <h4 class="font-bold text-color-secondary mb-1">
+                  Markin Nesus
+                </h4>
+                <p>Ios Developer</p>
+              </div>
+
+              <div class="user-text">
+                <p class="md:text-2xl mb-6">
+                  "This should be used to tell a story and include any
+                  testimontials you might have about your product or service for
+                  your clients
+                </p>
+                <h4 class="font-bold text-color-secondary mb-1">
+                  Markin Nesus
+                </h4>
+                <p>Ios Developer</p>
+              </div>
+
+              <div class="user-text">
+                <p class="md:text-2xl mb-6">
+                  "This should be used to tell a story and include any
+                  testimontials you might have about your product or service for
+                  your clients
+                </p>
+                <h4 class="font-bold text-color-secondary mb-1">
+                  Markin Nesus
+                </h4>
+                <p>Ios Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--SERVICES-->
+
+      <section></section>
     </main>
 
     <script>
@@ -168,6 +268,13 @@
           faSolid.classList.add("fa-bars");
         });
       });
+
+      // testimonial
+
+      const userTexts = document.getElementsByClassName("user-text");
+      const userPics = document.getElementsByClassName("user-pic");
+
+      function showReview() {}
     </script>
   </body>
 </html>
