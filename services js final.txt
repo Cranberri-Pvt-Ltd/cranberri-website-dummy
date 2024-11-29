@@ -1,0 +1,140 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const optionBoxes = document.querySelectorAll('.option-box');
+    const formContainer = document.getElementById('form-container');
+    const requirementForm = document.getElementById('requirements-form');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const continueBtn = document.getElementById('continue-btn');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+  
+    let selectedServices = new Set();
+  
+    function toggleService(option) {
+      const selectedBox = document.querySelector(`[data-option="${option}"]`);
+      
+      if (selectedServices.has(option)) {
+        selectedServices.delete(option);
+        selectedBox.classList.remove('selected');
+      } else {
+        selectedServices.add(option);
+        selectedBox.classList.add('selected');
+      }
+      
+      if (selectedServices.size > 0) {
+        continueBtn.classList.add('show');
+      } else {
+        continueBtn.classList.remove('show');
+        formContainer.classList.remove('show');
+        setTimeout(() => {
+          formContainer.classList.add('hidden');
+        }, 300);
+      }
+    }
+  
+    function updateRequirementBox() {
+      const requirementsContainer = document.getElementById('requirements-container');
+      requirementsContainer.innerHTML = '';
+  
+      if (selectedServices.size > 0) {
+        const selectedServicesList = Array.from(selectedServices).map(service => {
+          const serviceName = {
+            'graphic': 'Graphic Design',
+            'website': 'Website',
+            'social': 'Social Media'
+          }[service];
+          return serviceName;
+        }).join(', ');
+  
+        const requirementBox = document.createElement('div');
+        requirementBox.className = 'requirement-box';
+        requirementBox.innerHTML = `
+          <h3 class="requirement-title">Requirements for ${selectedServicesList}</h3>
+          <textarea 
+            id="combined-requirements"
+            name="combined-requirements"
+            placeholder="Please describe your requirements for the selected services..."
+            required
+          ></textarea>
+          <div class="char-count">Characters: <span id="combined-char-count">0</span></div>
+        `;
+  
+        requirementsContainer.appendChild(requirementBox);
+  
+        // Add character counter for the textarea
+        const textarea = requirementBox.querySelector('textarea');
+        const charCount = requirementBox.querySelector('#combined-char-count');
+        
+        textarea.addEventListener('input', () => {
+          const currentLength = textarea.value.length;
+          charCount.textContent = currentLength;
+        });
+      }
+    }
+  
+    // Add click handlers to option boxes
+    optionBoxes.forEach(box => {
+      box.addEventListener('click', () => {
+        toggleService(box.dataset.option);
+      });
+    });
+  
+    // Handle continue button click
+    continueBtn.addEventListener('click', () => {
+      updateRequirementBox();
+      formContainer.classList.remove('hidden');
+      formContainer.offsetHeight; // Force reflow
+      formContainer.classList.add('show');
+      formContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+  
+    // Handle form submission
+    requirementForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = {
+        name: nameInput.value,
+        email: emailInput.value,
+        requirements: document.getElementById('combined-requirements').value.trim()
+      };
+  
+      if (!formData.requirements) {
+        alert('Please fill in the requirements');
+        return;
+      }
+      
+      console.log('Form submission:', formData);
+      alert('Thank you for your submission! We will get back to you soon.');
+      
+      // Reset form
+      nameInput.value = '';
+      emailInput.value = '';
+      selectedServices.clear();
+      formContainer.classList.remove('show');
+      continueBtn.classList.remove('show');
+      setTimeout(() => {
+        formContainer.classList.add('hidden');
+      }, 300);
+      
+      // Remove selected state from boxes
+      optionBoxes.forEach(box => {
+        box.classList.remove('selected');
+      });
+    });
+  
+    // Handle cancel button
+    cancelBtn.addEventListener('click', () => {
+      formContainer.classList.remove('show');
+      setTimeout(() => {
+        formContainer.classList.add('hidden');
+        nameInput.value = '';
+        emailInput.value = '';
+        selectedServices.clear();
+        
+        // Remove selected state from boxes
+        optionBoxes.forEach(box => {
+          box.classList.remove('selected');
+        });
+        continueBtn.classList.remove('show');
+      }, 300);
+    });
+  });
